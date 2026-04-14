@@ -9,7 +9,7 @@ export default function FriendDetails() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setLoading (true);
+        setLoading(true);
         // পাথ হিসেবে '/data/friends.json' ব্যবহার করা হয়েছে (Absolute Path)
         fetch("/data/friends.json")
             .then((res) => {

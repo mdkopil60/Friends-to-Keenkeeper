@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 
 const FriendCard = ({ friend }) => {
-  // স্ট্যাটাস অনুযায়ী কালার নির্ধারণের জন্য একটি অবজেক্ট
   const statusColors = {
     overdue: "bg-red-500",
     "almost due": "bg-yellow-500",
@@ -25,8 +24,8 @@ const FriendCard = ({ friend }) => {
 
         <div className="flex justify-center gap-2 mt-2 flex-wrap">
           {friend.tags.map((tag, i) => (
-            <span 
-              key={i} 
+            <span
+              key={i}
               className="bg-blue-50 text-blue-600 px-3 py-1 text-[10px] uppercase font-bold rounded-md"
             >
               {tag}
@@ -35,9 +34,8 @@ const FriendCard = ({ friend }) => {
         </div>
 
         <span
-          className={`mt-4 inline-block px-4 py-1 text-white rounded-full text-xs font-medium capitalize ${
-            statusColors[friend.status.toLowerCase()] || "bg-gray-400"
-          }`}
+          className={`mt-4 inline-block px-4 py-1 text-white rounded-full text-xs font-medium capitalize ${statusColors[friend.status.toLowerCase()] || "bg-gray-400"
+            }`}
         >
           {friend.status}
         </span>
