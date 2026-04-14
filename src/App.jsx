@@ -3,7 +3,9 @@ import './App.css'
 function App() {
   return (
     <>
-    <div className='text-6xl text-red-400'> Hi kopil</div>    
+    <div className='text-6xl text-red-400'> </div>   
+    
+     <TaskController></TaskController>
     </>
   )
 }

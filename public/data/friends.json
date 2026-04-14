@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Rahim Uddin",
-    "picture": "./public/assets/img-1.jpeg",
+    "picture": "/assets/img-1.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 10,
     "status": "overdue",
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "name": "Karim Hasan",
-    "picture": "./public/assets/img-2.jpeg",
+    "picture": "/assets/img-2.jpeg",
     "email": "karim@gmail.com",
     "days_since_contact": 5,
     "status": "on-track",
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "name": "Kopil Uddin",
-    "picture": "./public/assets/img-3.jpeg",
+    "picture": "/assets/img-3.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 18,
     "status": "Almost Due",
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "name": "Saif Hasan",
-    "picture": "./public/assets/img-4.jpeg",
+    "picture": "/assets/img-4.jpeg",
     "email": "karim@gmail.com",
     "days_since_contact": 15,
     "status": "on-track",
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "name": "Rahim Rana",
-    "picture": "./public/assets/img-5.jpeg",
+    "picture": "/assets/img-5.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 42,
     "status": "overdue",
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "name": "Fahim kahin",
-    "picture": "./public/assets/img-6.jpeg",
+    "picture": "/assets/img-6.jpeg",
     "email": "karim@gmail.com",
     "days_since_contact": 52,
     "status": "Almost Due",
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "name": "minjah Uddin",
-    "picture": "./public/assets/img-7.jpeg",
+    "picture": "/assets/img-7.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 120,
     "status": "overdue",
@@ -86,7 +86,7 @@
   {
     "id": 8,
     "name": "Nahid Khan",
-    "picture": "./public/assets/img-8.jpeg",
+    "picture": "/assets/img-8.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 50,
     "status": "Almost Due",
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "name": "Sanzida Nowrien",
-    "picture": "./public/assets/img-9.jpeg",
+    "picture": "/assets/img-9.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 90,
     "status": "overdue",
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "name": "Bablu Khan",
-    "picture": "./public/assets/img-10.jpeg",
+    "picture": "/assets/img-10.jpeg",
     "email": "rahim@gmail.com",
     "days_since_contact": 11,
     "status": "Almost Due",
