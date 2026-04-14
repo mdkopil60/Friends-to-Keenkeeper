@@ -1,30 +1,84 @@
+import { useEffect, useState } from "react";
+
 export default function Timeline() {
-    const data = [
-        { id: 1, type: "Call", title: "Call with Rahim", date: "April 10" },
-        { id: 2, type: "Text", title: "Text with Karim", date: "April 12" },
-    ];
+    const [timeline, setTimeline] = useState([]);
+    const [filter, setFilter] = useState("All");
+
+    // ✅ Load data from localStorage
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem("timeline")) || [];
+        setTimeline(data);
+    }, []);
+
+    // ✅ Filtered Data
+    const filteredData =
+        filter === "All"
+            ? timeline
+            : timeline.filter((item) => item.type === filter);
+
+    // ✅ Date Format
+    const formatDate = (dateStr) => {
+        const date = new Date(dateStr);
+        return date.toDateString(); // nice readable
+    };
 
     return (
-        <div className="max-w-4xl mx-auto p-6">
-            <h2 className="text-2xl font-bold mb-6">Timeline</h2>
+        <div className="max-w-5xl mx-auto p-6">
 
-            <div className="space-y-4">
-                {data.map((item) => (
-                    <div key={item.id} className="bg-white p-4 rounded shadow flex gap-4">
-                        <span>
-                            {item.type === "Call"
-                                ? "📞"
-                                : item.type === "Text"
-                                    ? "💬"
-                                    : "🎥"}
-                        </span>
+            {/* HEADING */}
+            <h2 className="text-3xl font-bold mb-6 text-center">
+                Timeline
+            </h2>
 
-                        <div>
-                            <p>{item.title}</p>
-                            <p className="text-sm text-gray-500">{item.date}</p>
-                        </div>
-                    </div>
+            {/* FILTER BUTTONS */}
+            <div className="flex justify-center gap-3 mb-6 flex-wrap">
+                {["All", "Call", "Text", "Video"].map((type) => (
+                    <button
+                        key={type}
+                        onClick={() => setFilter(type)}
+                        className={`px-4 py-1 rounded-full border ${filter === type
+                                ? "bg-green-500 text-white"
+                                : "bg-white"
+                            }`}
+                    >
+                        {type}
+                    </button>
                 ))}
+            </div>
+
+            {/* TIMELINE LIST */}
+            <div className="space-y-4">
+                {filteredData.length === 0 ? (
+                    <p className="text-center text-gray-500">
+                        No interactions yet 
+                    </p>
+                ) : (
+                    filteredData.map((item) => (
+                        <div
+                            key={item.id}
+                            className="bg-white p-4 rounded-xl shadow flex items-center gap-4"
+                        >
+                            {/* ICON */}
+                            <div className="text-2xl">
+                                {item.type === "Call"
+                                    ? "📞"
+                                    : item.type === "Text"
+                                        ? "💬"
+                                        : "🎥"}
+                            </div>
+
+                            {/* CONTENT */}
+                            <div className="flex-1">
+                                <p className="font-semibold">
+                                    {item.type} with {item.name}
+                                </p>
+                                <p className="text-sm text-gray-500">
+                                    {formatDate(item.date)}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );

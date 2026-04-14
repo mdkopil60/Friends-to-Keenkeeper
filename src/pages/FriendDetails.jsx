@@ -9,123 +9,137 @@ export default function FriendDetails() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setLoading(true);
-        // পাথ হিসেবে '/data/friends.json' ব্যবহার করা হয়েছে (Absolute Path)
         fetch("/data/friends.json")
-            .then((res) => {
-                if (!res.ok) throw new Error("Failed to fetch data");
-                return res.json();
-            })
-            .then((data) => {
-                const found = data.find((f) => f.id == id);
+            .then(res => res.json())
+            .then(data => {
+                const found = data.find(f => f.id == id);
                 setFriend(found);
                 setLoading(false);
             })
-            .catch((err) => {
-                console.error(err);
-                toast.error("Could not load friend details");
+            .catch(() => {
+                toast.error("Failed to load data");
                 setLoading(false);
             });
     }, [id]);
 
+    
     const handleAction = (type) => {
-        toast.success(`${type} request sent to ${friend.name}`);
+        const newEntry = {
+            id: Date.now(),
+            type: type ,
+            name: friend.name,
+            date: new Date().toISOString()
+        };
+
+        const oldData = JSON.parse(localStorage.getItem("timeline")) || [];
+        const updated = [newEntry, ...oldData];
+
+        localStorage.setItem("timeline", JSON.stringify(updated));
+
+        toast.success(`${type} with ${friend.name} added to timeline`);
+    };
+
+   
+    const getStatusColor = (status) => {
+        if (status === "overdue") return "bg-red-100 text-red-600";
+        if (status === "almost due") return "bg-yellow-100 text-yellow-600";
+        return "bg-green-100 text-green-600";
     };
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center min-h-[400px]">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+            <div className="flex justify-center items-center h-[300px]">
+                <span className="loading loading-spinner text-success"></span>
             </div>
         );
     }
 
     if (!friend) {
-        return (
-            <div className="text-center py-20">
-                <h2 className="text-2xl font-bold text-gray-600">Friend not found!</h2>
-                <button onClick={() => navigate("/")} className="mt-4 text-blue-500 underline">
-                    Go Back Home
-                </button>
-            </div>
-        );
+        return <h2 className="text-center mt-20 text-xl">Friend not found</h2>;
     }
 
     return (
-        <div className="max-w-5xl mx-auto p-6 animate-fadeIn">
-            <div className="grid md:grid-cols-12 gap-8">
+        <div className="max-w-6xl mx-auto p-5">
+            <div className="grid md:grid-cols-12 gap-6">
 
-                {/* LEFT COLUMN - Profile Card */}
-                <div className="md:col-span-5 bg-white p-8 rounded-3xl shadow-sm border border-gray-50 text-center">
-                    <div className="relative inline-block">
-                        <img
-                            src={friend.picture}
-                            className="w-32 h-32 mx-auto rounded-full object-cover ring-4 ring-green-50"
-                            alt={friend.name}
-                        />
-                        <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-white rounded-full"></div>
+                {/* LEFT SIDE */}
+                <div className="md:col-span-4 space-y-4">
+
+                    <div className="bg-white p-6 rounded-xl shadow text-center">
+                        <img src={friend.picture} className="w-24 h-24 mx-auto rounded-full" />
+                        <h2 className="font-bold text-xl mt-3">{friend.name}</h2>
+
+                        <span className={`px-3 py-1 rounded-full text-sm mt-2 inline-block ${getStatusColor(friend.status)}`}>
+                            {friend.status}
+                        </span>
+
+                        <p className="text-sm text-gray-500 mt-2">{friend.email}</p>
+                        <p className="text-gray-600 mt-3 text-sm">{friend.bio}</p>
+
+                        <div className="flex flex-wrap gap-2 justify-center mt-3">
+                            {friend.tags.map((tag, i) => (
+                                <span key={i} className="bg-gray-100 px-2 py-1 text-xs rounded">
+                                    #{tag}
+                                </span>
+                            ))}
+                        </div>
                     </div>
 
-                    <h2 className="mt-5 text-2xl font-black text-gray-800">{friend.name}</h2>
-                    <p className="text-blue-500 font-medium">{friend.email}</p>
-                    <p className="mt-4 text-gray-600 leading-relaxed italic">"{friend.bio}"</p>
-
-                    <div className="flex justify-center gap-2 mt-6 flex-wrap">
-                        {friend.tags.map((tag, i) => (
-                            <span key={i} className="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg text-sm font-medium">
-                                #{tag}
-                            </span>
-                        ))}
+                    {/* ACTION BUTTONS */}
+                    <div className="bg-white p-4 rounded-xl shadow space-y-2">
+                        <button className="btn w-full"> Snooze 2 Weeks</button>
+                        <button className="btn w-full">Archive</button>
+                        <button className="btn w-full btn-error"> Delete</button>
                     </div>
                 </div>
 
-                {/* RIGHT COLUMN - Stats & Actions */}
-                <div className="md:col-span-7 space-y-6">
+                {/* RIGHT SIDE */}
+                <div className="md:col-span-8 space-y-5">
 
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-3 bg-white p-6 rounded-3xl shadow-sm border border-gray-50 text-center">
-                        <div className="border-r border-gray-100">
-                            <p className="text-2xl font-black text-gray-800">{friend.days_since_contact}</p>
-                            <p className="text-xs text-gray-400 uppercase tracking-wider font-bold">Days Ago</p>
+                    {/* STATS */}
+                    <div className="grid grid-cols-3 gap-4">
+                        <div className="bg-white p-4 rounded-xl shadow text-center">
+                            <h2 className="text-2xl font-bold">{friend.days_since_contact}</h2>
+                            <p className="text-sm text-gray-500">Days Since Contact</p>
                         </div>
-                        <div className="border-r border-gray-100">
-                            <p className="text-2xl font-black text-gray-800">{friend.goal}</p>
-                            <p className="text-xs text-gray-400 uppercase tracking-wider font-bold">Goal</p>
+
+                        <div className="bg-white p-4 rounded-xl shadow text-center">
+                            <h2 className="text-2xl font-bold">{friend.goal}</h2>
+                            <p className="text-sm text-gray-500">Goal (Days)</p>
                         </div>
-                        <div>
-                            <p className="text-2xl font-black text-gray-800 text-red-500">{friend.next_due_date.split('-')[2]}</p>
-                            <p className="text-xs text-gray-400 uppercase tracking-wider font-bold">Next Due</p>
+
+                        <div className="bg-white p-4 rounded-xl shadow text-center">
+                            <h2 className="text-lg font-bold">{friend.next_due_date}</h2>
+                            <p className="text-sm text-gray-500">Next Due</p>
                         </div>
                     </div>
 
-                    {/* Quick Actions */}
-                    <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-50">
-                        <h3 className="mb-5 font-bold text-gray-800 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                            Quick Check-In
-                        </h3>
+                    {/* RELATIONSHIP GOAL */}
+                    <div className="bg-white p-5 rounded-xl shadow flex justify-between items-center">
+                        <div>
+                            <h3 className="font-bold">Relationship Goal</h3>
+                            <p className="text-gray-600 text-sm">
+                                Connect every {friend.goal} days
+                            </p>
+                        </div>
+                        <button className="btn btn-sm">Edit</button>
+                    </div>
+
+                    {/* QUICK CHECK-IN */}
+                    <div className="bg-white p-5 rounded-xl shadow">
+                        <h3 className="font-bold mb-3">Quick Check-In</h3>
 
                         <div className="grid grid-cols-3 gap-4">
-                            <button
-                                onClick={() => handleAction("Call")}
-                                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-600 transition-colors gap-2"
-                            >
-                                <span className="text-2xl"><img src="/public/assets/call.png" alt="" /></span>
-                                <span className="text-xs font-bold uppercase">Call</span>
+                            <button onClick={() => handleAction("Call")} className="btn btn-outline">
+                                <img src="/assets/call.png" alt="" /> Call
                             </button>
-                            <button
-                                onClick={() => handleAction("Message")}
-                                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-green-50 hover:bg-green-100 text-green-600 transition-colors gap-2"
-                            >
-                                <span className="text-2xl"><img src="/public/assets/text.png" alt="" /></span>
-                                <span className="text-xs font-bold uppercase">Text</span>
+
+                            <button onClick={() => handleAction("Text")} className="btn btn-outline">
+                                <img src="/assets/text.png" alt="" /> Text
                             </button>
-                            <button
-                                onClick={() => handleAction("Video")}
-                                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-purple-50 hover:bg-purple-100 text-purple-600 transition-colors gap-2"
-                            >
-                                <span className="text-2xl"><img src="/public/assets/video.png" alt="" /></span>
-                                <span className="text-xs font-bold uppercase">Video</span>
+
+                            <button onClick={() => handleAction("Video")} className="btn btn-outline">
+                                <img src="/assets/video.png" alt="" /> Video
                             </button>
                         </div>
                     </div>
@@ -134,4 +148,4 @@ export default function FriendDetails() {
             </div>
         </div>
     );
-}                
+}
