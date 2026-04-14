@@ -5,7 +5,7 @@ const Navbar = () => {
         <li>
             <NavLink to={"/"}
                 className={({ isActive }) =>
-                    `font-semibold mr-1 ${isActive ? "text-green-900 border border-green-900" : ""}`
+                    `font-semibold mr-1 ${isActive ? "btn btn-soft btn-accent border border-green-900" : ""}`
                 }
             >
                 Home
@@ -15,7 +15,7 @@ const Navbar = () => {
         <li>
             <NavLink to={"/timelines"}
                 className={({ isActive }) =>
-                    `font-semibold mr-1 ${isActive ? "text-green-900 border border-green-900" : ""}`
+                    `font-semibold mr-1 ${isActive ? "btn btn-soft btn-accent border border-green-900" : ""}`
                 }
             >
                 Timeline
@@ -25,7 +25,7 @@ const Navbar = () => {
         <li>
             <NavLink to={"/stats"}
                 className={({ isActive }) =>
-                    `font-semibold mr-1 ${isActive ? "text-green-900 border border-green-900" : ""}`
+                    `font-semibold mr-1 ${isActive ? "btn btn-soft btn-accent border border-green-900" : ""}`
                 }
             >
                 Stats

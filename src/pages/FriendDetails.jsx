@@ -22,11 +22,11 @@ export default function FriendDetails() {
             });
     }, [id]);
 
-    
+
     const handleAction = (type) => {
         const newEntry = {
             id: Date.now(),
-            type: type ,
+            type: type,
             name: friend.name,
             date: new Date().toISOString()
         };
@@ -39,7 +39,7 @@ export default function FriendDetails() {
         toast.success(`${type} with ${friend.name} added to timeline`);
     };
 
-   
+
     const getStatusColor = (status) => {
         if (status === "overdue") return "bg-red-100 text-red-600";
         if (status === "almost due") return "bg-yellow-100 text-yellow-600";
@@ -130,15 +130,15 @@ export default function FriendDetails() {
                         <h3 className="font-bold mb-3">Quick Check-In</h3>
 
                         <div className="grid grid-cols-3 gap-4">
-                            <button onClick={() => handleAction("Call")} className="btn btn-outline">
+                            <button onClick={() => handleAction("Call")} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
                                 <img src="/assets/call.png" alt="" /> Call
                             </button>
 
-                            <button onClick={() => handleAction("Text")} className="btn btn-outline">
+                            <button onClick={() => handleAction("Text")} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
                                 <img src="/assets/text.png" alt="" /> Text
                             </button>
 
-                            <button onClick={() => handleAction("Video")} className="btn btn-outline">
+                            <button onClick={() => handleAction("Video")} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
                                 <img src="/assets/video.png" alt="" /> Video
                             </button>
                         </div>
