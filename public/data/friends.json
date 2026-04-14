@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Rahim Uddin",
+    "picture": "./public/assets/img-1.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 10,
+    "status": "overdue",
+    "tags": ["college"],
+    "bio": "Close friend from college.",
+    "goal": 14,
+    "next_due_date": "2026-04-20"
+  },
+  {
+    "id": 2,
+    "name": "Karim Hasan",
+    "picture": "./public/assets/img-2.jpeg",
+    "email": "karim@gmail.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["work"],
+    "bio": "Office colleague.",
+    "goal": 10,
+    "next_due_date": "2026-04-25"
+  },
+  {
+    "id": 3,
+    "name": "Kopil Uddin",
+    "picture": "./public/assets/img-3.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 18,
+    "status": "Almost Due",
+    "tags": ["college"],
+    "bio": "best friend.",
+    "goal": 14,
+    "next_due_date": "2025-04-20"
+  },
+  {
+    "id": 4,
+    "name": "Saif Hasan",
+    "picture": "./public/assets/img-4.jpeg",
+    "email": "karim@gmail.com",
+    "days_since_contact": 15,
+    "status": "on-track",
+    "tags": ["work"],
+    "bio": "Office friend.",
+    "goal": 33,
+    "next_due_date": "2026-06-25"
+  },
+  {
+    "id": 5,
+    "name": "Rahim Rana",
+    "picture": "./public/assets/img-5.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 42,
+    "status": "overdue",
+    "tags": ["college"],
+    "bio": "Close friend.",
+    "goal": 23,
+    "next_due_date": "2023-04-20"
+  },
+  {
+    "id": 6,
+    "name": "Fahim kahin",
+    "picture": "./public/assets/img-6.jpeg",
+    "email": "karim@gmail.com",
+    "days_since_contact": 52,
+    "status": "Almost Due",
+    "tags": ["work"],
+    "bio": "Office colleague.",
+    "goal": 103,
+    "next_due_date": "2026-01-21"
+  },
+  {
+    "id": 7,
+    "name": "minjah Uddin",
+    "picture": "./public/assets/img-7.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 120,
+    "status": "overdue",
+    "tags": ["college"],
+    "bio": "Close friend.",
+    "goal": 43,
+    "next_due_date": "2026-02-20"
+  },
+  {
+    "id": 8,
+    "name": "Nahid Khan",
+    "picture": "./public/assets/img-8.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 50,
+    "status": "Almost Due",
+    "tags": ["college"],
+    "bio": "Close friend from college.",
+    "goal": 50,
+    "next_due_date": "2025-03-20"
+  },
+  {
+    "id": 9,
+    "name": "Sanzida Nowrien",
+    "picture": "./public/assets/img-9.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 90,
+    "status": "overdue",
+    "tags": ["college"],
+    "bio": "best friend from college.",
+    "goal": 21,
+    "next_due_date": "2025-06-07"
+  },
+  {
+    "id": 10,
+    "name": "Bablu Khan",
+    "picture": "./public/assets/img-10.jpeg",
+    "email": "rahim@gmail.com",
+    "days_since_contact": 11,
+    "status": "Almost Due",
+    "tags": ["college"],
+    "bio": "friend .",
+    "goal": 144,
+    "next_due_date": "2025-07-28"
+  }
+]
