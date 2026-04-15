@@ -90,7 +90,6 @@ export default function FriendDetails() {
                         </div> */}
                     </div>
 
-                    {/* ACTION BUTTONS */}
                     <div className="bg-white p-4 rounded-xl shadow space-y-2">
                         <button className="btn w-full"><FaBell /> Snooze 2 Weeks</button>
                         <button className="btn w-full"> <FaArchive /> Archive</button>
@@ -101,7 +100,6 @@ export default function FriendDetails() {
                 {/* RIGHT SIDE */}
                 <div className="md:col-span-8 space-y-5">
 
-                    {/* STATS */}
                     <div className="grid grid-cols-3 gap-4">
                         <div className="bg-white p-4 rounded-xl shadow text-center">
                             <h2 className="text-2xl font-bold">{friend.days_since_contact}</h2>
@@ -119,7 +117,6 @@ export default function FriendDetails() {
                         </div>
                     </div>
 
-                    {/* RELATIONSHIP GOAL */}
                     <div className="bg-white p-5 rounded-xl shadow flex justify-between items-center">
                         <div>
                             <h3 className="font-bold text-green-900">Relationship Goal</h3>
@@ -130,7 +127,6 @@ export default function FriendDetails() {
                         <button className="btn btn-sm">Edit</button>
                     </div>
 
-                    {/* QUICK CHECK-IN */}
                     <div className="bg-white p-5 rounded-xl shadow">
                         <h3 className="font-bold mb-3 text-green-900">Quick Check-In</h3>
 
