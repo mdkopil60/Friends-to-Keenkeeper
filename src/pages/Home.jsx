@@ -1,5 +1,6 @@
 import Banner from "../components/homepage/Banner";
-import FriendSection from "../components/homepage/friendSection";
+import FriendSection from "../components/homepage/FriendSection";
+
 
 
 const Home = () => {
