@@ -1,3 +1,6 @@
+import { FaHome } from "react-icons/fa";
+import { IoIosStats } from "react-icons/io";
+import { MdAccessTime } from "react-icons/md";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
@@ -8,7 +11,7 @@ const Navbar = () => {
                     `font-semibold mr-1 ${isActive ? "btn btn-soft btn-accent text-white bg-green-900 border border-green-900" : ""}`
                 }
             >
-                Home
+               <FaHome/> Home
             </NavLink>
         </li>
 
@@ -18,7 +21,7 @@ const Navbar = () => {
                     `font-semibold mr-1 ${isActive ? "btn btn-soft btn-accent text-white bg-green-900 border border-green-900" : ""}`
                 }
             >
-                Timeline
+               <MdAccessTime /> Timeline
             </NavLink>
         </li>
 
@@ -28,7 +31,7 @@ const Navbar = () => {
                     `font-semibold mr-1 ${isActive ? "btn btn-soft btn-accent text-white bg-green-900 border  border-green-900" : ""}`
                 }
             >
-                Stats
+               <IoIosStats /> Stats
             </NavLink>
         </li>
 

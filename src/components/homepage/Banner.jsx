@@ -21,28 +21,28 @@ const Banner = () => {
       
             <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <div className="bg-white border border-gray-100 shadow-sm rounded-lg p-6 text-center">
-                    <h3 className="text-3xl font-bold text-gray-800">10</h3>
+                    <h3 className="text-3xl font-bold text-green-900">10</h3>
                     <p className="text-[10px] md:text-xs uppercase tracking-[2px] text-gray-400 font-bold mt-2">
                         Total Friends
                     </p>
                 </div>
 
                 <div className="bg-white border border-gray-100 shadow-sm rounded-lg p-6 text-center">
-                    <h3 className="text-3xl font-bold text-gray-800">3</h3>
+                    <h3 className="text-3xl font-bold text-green-900">3</h3>
                     <p className="text-[10px] md:text-xs uppercase tracking-[2px] text-gray-400 font-bold mt-2">
                         On Track
                     </p>
                 </div>
 
                 <div className="bg-white border border-gray-100 shadow-sm rounded-lg p-6 text-center">
-                    <h3 className="text-3xl font-bold text-gray-800">6</h3>
+                    <h3 className="text-3xl font-bold text-green-900">6</h3>
                     <p className="text-[10px] md:text-xs uppercase tracking-[2px] text-gray-400 font-bold mt-2">
                         Need Attention
                     </p>
                 </div>
 
                 <div className="bg-white border border-gray-100 shadow-sm rounded-lg p-6 text-center">
-                    <h3 className="text-3xl font-bold text-gray-800">12</h3>
+                    <h3 className="text-3xl font-bold text-green-900">12</h3>
                     <p className="text-[10px] md:text-xs uppercase tracking-[2px] text-gray-400 font-bold mt-2">
                         Interactions This Month
                     </p>

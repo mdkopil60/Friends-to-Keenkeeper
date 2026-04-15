@@ -29,7 +29,7 @@ export default function Timeline() {
                         key={type}
                         onClick={() => setFilter(type)}
                         className={`px-4 py-1 rounded-full border ${filter === type
-                            ? "bg-green-500 text-white"
+                            ? "btn btn-soft btn-accent bg-green-900 border text-white"
                             : "bg-white"
                             }`}
                     >

@@ -78,7 +78,7 @@ export default function FriendDetails() {
                             {friend.tags}
                         </span>
                         <p className="text-gray-600 mt-3 text-md">{friend.bio}</p>
-                        <p className="text-bold text-gray-500 mt-2">{friend.email}</p>
+                        <p className="text-bold text-gray-500 mt-2">Email : {friend.email}</p>
                         
 
                         {/* <div className="flex flex-wrap gap-2 justify-center mt-3">
