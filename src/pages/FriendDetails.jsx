@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { FaArchive, FaBell, FaTrash } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router";
 
 export default function FriendDetails() {
@@ -7,7 +8,7 @@ export default function FriendDetails() {
     const navigate = useNavigate();
     const [friend, setFriend] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    // console.log(navigate);
     useEffect(() => {
         fetch("/data/friends.json")
             .then(res => res.json())
@@ -72,24 +73,28 @@ export default function FriendDetails() {
                         <span className={`px-3 py-1 rounded-full text-sm mt-2 inline-block ${getStatusColor(friend.status)}`}>
                             {friend.status}
                         </span>
+                        <br />
+                         <span className={`px-3 py-1 rounded-full text-sm mt-2 inline-block ${getStatusColor(friend.tags)}`}>
+                            {friend.tags}
+                        </span>
+                        <p className="text-gray-600 mt-3 text-md">{friend.bio}</p>
+                        <p className="text-bold text-gray-500 mt-2">{friend.email}</p>
+                        
 
-                        <p className="text-sm text-gray-500 mt-2">{friend.email}</p>
-                        <p className="text-gray-600 mt-3 text-sm">{friend.bio}</p>
-
-                        <div className="flex flex-wrap gap-2 justify-center mt-3">
+                        {/* <div className="flex flex-wrap gap-2 justify-center mt-3">
                             {friend.tags.map((tag, i) => (
                                 <span key={i} className="bg-gray-100 px-2 py-1 text-xs rounded">
                                     #{tag}
                                 </span>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* ACTION BUTTONS */}
                     <div className="bg-white p-4 rounded-xl shadow space-y-2">
-                        <button className="btn w-full"> Snooze 2 Weeks</button>
-                        <button className="btn w-full">Archive</button>
-                        <button className="btn w-full btn-error"> Delete</button>
+                        <button className="btn w-full"><FaBell /> Snooze 2 Weeks</button>
+                        <button className="btn w-full"> <FaArchive /> Archive</button>
+                        <button className="btn w-full btn-error"> <FaTrash /> Delete</button>
                     </div>
                 </div>
 
@@ -117,7 +122,7 @@ export default function FriendDetails() {
                     {/* RELATIONSHIP GOAL */}
                     <div className="bg-white p-5 rounded-xl shadow flex justify-between items-center">
                         <div>
-                            <h3 className="font-bold">Relationship Goal</h3>
+                            <h3 className="font-bold text-green-900">Relationship Goal</h3>
                             <p className="text-gray-600 text-sm">
                                 Connect every {friend.goal} days
                             </p>
@@ -127,19 +132,19 @@ export default function FriendDetails() {
 
                     {/* QUICK CHECK-IN */}
                     <div className="bg-white p-5 rounded-xl shadow">
-                        <h3 className="font-bold mb-3">Quick Check-In</h3>
+                        <h3 className="font-bold mb-3 text-green-900">Quick Check-In</h3>
 
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className=" grid grid-cols-3 gap-4  ">
                             <button onClick={() => handleAction("Call")} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
-                                <img src="/assets/call.png" alt="" /> Call
+                                <img className="w-6 h-6" src="/assets/call.png" alt="" /> Call
                             </button>
 
                             <button onClick={() => handleAction("Text")} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
-                                <img src="/assets/text.png" alt="" /> Text
+                                <img className="w-6 h-6" src="/assets/chat.png" alt="" /> Text
                             </button>
 
                             <button onClick={() => handleAction("Video")} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
-                                <img src="/assets/video.png" alt="" /> Video
+                                <img className="w-6 h-6" src="/assets/video.png" alt="" /> Video
                             </button>
                         </div>
                     </div>

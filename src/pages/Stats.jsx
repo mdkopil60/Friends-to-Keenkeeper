@@ -16,7 +16,7 @@ const Stats = () => {
                     Friendship Analytics
                 </h1>
                 <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-8 flex flex-col items-center justify-center min-h-[450px]">
-                    <p className="w-full text-left text-gray-600 font-medium mb-4">
+                    <p className="w-full text-left text-green-900 font-medium mb-4">
                         By Interaction Type
                     </p>
                     <div className="w-full h-[350px]">

@@ -13,7 +13,7 @@ const Banner = () => {
                 </p>
 
                 <div className="mt-8">
-                    <button className="btn btn-primary text-white border-none normal-case rounded-md px-6">
+                    <button className="btn btn-primary text-white bg-green-900 rounded-md px-6">
                         + Add a Friend
                     </button>
                 </div>

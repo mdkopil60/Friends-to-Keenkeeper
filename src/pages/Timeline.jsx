@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaComment, FaPhone, FaVideo } from "react-icons/fa";
 
 export default function Timeline() {
     const [timeline, setTimeline] = useState([]);
@@ -50,10 +51,10 @@ export default function Timeline() {
                         >
                             <div className="text-2xl">
                                 {item.type === "Call"
-                                    ? "📞"
+                                    ? (<FaPhone />)
                                     : item.type === "Text"
-                                        ? "💬"
-                                        : "🎥"}
+                                        ? (<FaComment />)
+                                        : (<FaVideo />)}
                             </div>
 
                             <div className="flex-1">
